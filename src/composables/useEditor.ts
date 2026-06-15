@@ -1,6 +1,6 @@
 import type { EditorState, SlotValueEntry } from '@triggerix/editor'
 import { createEditor } from '@triggerix/editor'
-import { onScopeDispose, shallowRef } from 'vue'
+import { onScopeDispose, shallowRef, triggerRef } from 'vue'
 import { provideEditor } from '../context'
 
 export function useEditor() {
@@ -8,8 +8,8 @@ export function useEditor() {
   const state = shallowRef<EditorState>(editor.getState())
 
   // 桥接 listener → Vue reactivity
-  const unsubscribe = editor.onChange((newState) => {
-    state.value = newState
+  const unsubscribe = editor.onChange(() => {
+    triggerRef(state)
   })
 
   // 自动清理

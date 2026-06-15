@@ -1,13 +1,13 @@
 import type { EditorState } from '@triggerix/editor'
-import { computed, onScopeDispose, shallowRef } from 'vue'
+import { computed, onScopeDispose, shallowRef, triggerRef } from 'vue'
 import { injectEditor } from '../context'
 
 export function useEditorState() {
   const editor = injectEditor()
   const state = shallowRef<EditorState>(editor.getState())
 
-  const unsubscribe = editor.onChange((newState) => {
-    state.value = newState
+  const unsubscribe = editor.onChange(() => {
+    triggerRef(state)
   })
 
   onScopeDispose(() => {
