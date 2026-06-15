@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@triggerix/core': ^0.0.2
-  '@triggerix/editor': ^0.0.2
-
 importers:
 
   .:
@@ -35,7 +31,7 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
       vue:
-        specifier: ^3.5.0
+        specifier: ^3.5.38
         version: 3.5.38(typescript@6.0.3)
 
 packages:
