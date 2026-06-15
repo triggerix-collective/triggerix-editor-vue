@@ -1,0 +1,7 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+overrides:
+  '@triggerix/core': ^0.0.2
+  '@triggerix/editor': ^0.0.2
