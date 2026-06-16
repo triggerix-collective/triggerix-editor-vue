@@ -1,4 +1,5 @@
 import type { Editor } from '@triggerix/editor'
+import type { UseEditorReturn } from '../types'
 import { onScopeDispose, shallowRef, triggerRef } from 'vue'
 import { provideEditor } from '../context'
 
@@ -7,7 +8,7 @@ import { provideEditor } from '../context'
  * War3 用：useEditor(createWar3Editor())
  * Workflow 用：useEditor(createWorkflowEditor())
  */
-export function useEditor<TState>(editor: Editor<TState>) {
+export function useEditor<TState>(editor: Editor<TState>): UseEditorReturn<TState> {
   const state = shallowRef<TState>(editor.getState())
 
   const unsubscribe = editor.onChange(() => {
