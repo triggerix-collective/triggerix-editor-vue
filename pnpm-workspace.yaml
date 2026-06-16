@@ -8,3 +8,4 @@ trustPolicy: no-downgrade
 
 allowBuilds:
   esbuild: true
+  simple-git-hooks: true

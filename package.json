@@ -29,7 +29,8 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "lint": "eslint --cache",
-    "release": "bumpp"
+    "release": "bumpp",
+    "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
@@ -41,8 +42,16 @@
     "@antfu/eslint-config": "^9.0.0",
     "bumpp": "^11.1.0",
     "eslint": "^10.5.0",
+    "nano-staged": "^1.0.2",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3",
     "unbuild": "^3.6.1",
     "vue": "^3.5.38"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm nano-staged"
+  },
+  "nano-staged": {
+    "*": "eslint --cache --fix"
   }
 }
