@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@triggerix/editor':
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^0.0.4
+        version: 0.0.4
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^9.0.0
@@ -610,11 +610,11 @@ packages:
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
 
-  '@triggerix/core@0.0.3':
-    resolution: {integrity: sha512-sy/5xVWpuQ9RUzkrc4yEOAZoSpaL9/VgKSAybpziB7jQEQqWaAIXdlGAaIxbCoEOyPSz99OPNmFbVqcgr2K4+w==}
+  '@triggerix/core@0.0.4':
+    resolution: {integrity: sha512-tRaBcKESLdNv2kjdm9fz+mxwjNObkV8dhBtsJnXlklK9dvFHfcy+y3wkFgggKBS7rb1zp9Q6wnDTPFZZFsyAdQ==}
 
-  '@triggerix/editor@0.0.3':
-    resolution: {integrity: sha512-c/0IhiVJOy5rYuzqrTVb21bCX5dFzDUpwCie34GpBRKHW0NeqtyUPX+1goexT8CdJPmj/3hHfVw8IQ5yovMm3w==}
+  '@triggerix/editor@0.0.4':
+    resolution: {integrity: sha512-nOYxy76jk8v99JUDORUdJV51ZGIiMyl59T/p3KxUIA2ZzIBUDMLcZqtIrSMSc0fTukVNLjb0yl5NYrgk5OxZag==}
 
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
@@ -2574,11 +2574,11 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.4
 
-  '@triggerix/core@0.0.3': {}
+  '@triggerix/core@0.0.4': {}
 
-  '@triggerix/editor@0.0.3':
+  '@triggerix/editor@0.0.4':
     dependencies:
-      '@triggerix/core': 0.0.3
+      '@triggerix/core': 0.0.4
 
   '@types/debug@4.1.13':
     dependencies:
