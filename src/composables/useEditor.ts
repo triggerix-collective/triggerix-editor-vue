@@ -1,40 +1,30 @@
-import type { EditorState, SlotValueEntry } from '@triggerix/editor'
-import { createEditor } from '@triggerix/editor'
+import type { Editor } from '@triggerix/editor'
 import { onScopeDispose, shallowRef, triggerRef } from 'vue'
 import { provideEditor } from '../context'
 
-export function useEditor() {
-  const editor = createEditor()
-  const state = shallowRef<EditorState>(editor.getState())
+/**
+ * 通用 useEditor —— 接受任何实现了 Editor 接口的实例
+ * War3 用：useEditor(createWar3Editor())
+ * Workflow 用：useEditor(createWorkflowEditor())
+ */
+export function useEditor<TState>(editor: Editor<TState>) {
+  const state = shallowRef<TState>(editor.getState())
 
-  // 桥接 listener → Vue reactivity
   const unsubscribe = editor.onChange(() => {
     triggerRef(state)
   })
 
-  // 自动清理
   onScopeDispose(() => {
     unsubscribe()
+    editor.dispose()
   })
 
-  // 向子组件注入
-  provideEditor(editor)
+  provideEditor(editor as Editor<unknown>)
 
   return {
     editor,
     state,
-    // 代理状态操作
-    setEvent: (type: string) => editor.setEvent(type),
-    clearEvent: () => editor.clearEvent(),
-    setEventSlot: (key: string, entry: SlotValueEntry) => editor.setEventSlot(key, entry),
-    addAction: (type: string) => editor.addAction(type),
-    removeAction: (index: number) => editor.removeAction(index),
-    moveAction: (from: number, to: number) => editor.moveAction(from, to),
-    setActionSlot: (actionIndex: number, key: string, entry: SlotValueEntry) => editor.setActionSlot(actionIndex, key, entry),
-    addCondition: (type: string) => editor.addCondition(type),
-    removeCondition: (index: number) => editor.removeCondition(index),
-    setConditionSlot: (conditionIndex: number, key: string, entry: SlotValueEntry) => editor.setConditionSlot(conditionIndex, key, entry),
-    reset: () => editor.reset(),
-    toRule: (ruleId?: string) => editor.toRule(ruleId)
+    toRule: (id?: string) => editor.toRule(id),
+    reset: () => editor.reset()
   }
 }

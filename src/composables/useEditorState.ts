@@ -1,10 +1,13 @@
-import type { EditorState } from '@triggerix/editor'
-import { computed, onScopeDispose, shallowRef, triggerRef } from 'vue'
+import type { Editor } from '@triggerix/editor'
+import { onScopeDispose, shallowRef, triggerRef } from 'vue'
 import { injectEditor } from '../context'
 
-export function useEditorState() {
-  const editor = injectEditor()
-  const state = shallowRef<EditorState>(editor.getState())
+/**
+ * 在子组件中获取编辑器状态的响应式引用
+ */
+export function useEditorState<TState = unknown>() {
+  const editor: Editor<TState> = injectEditor<TState>()
+  const state = shallowRef<TState>(editor.getState())
 
   const unsubscribe = editor.onChange(() => {
     triggerRef(state)
@@ -15,9 +18,7 @@ export function useEditorState() {
   })
 
   return {
-    state,
-    event: computed(() => state.value.event),
-    actions: computed(() => state.value.actions),
-    conditions: computed(() => state.value.conditions)
+    editor,
+    state
   }
 }

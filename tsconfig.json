@@ -13,7 +13,10 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@triggerix/editor": ["../triggerix/packages/editor/src"]
+    }
   },
   "include": ["src/**/*.ts"]
 }

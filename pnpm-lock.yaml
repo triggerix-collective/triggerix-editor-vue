@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@triggerix/core':
-        specifier: ^0.0.2
-        version: 0.0.2
       '@triggerix/editor':
         specifier: ^0.0.2
         version: 0.0.2

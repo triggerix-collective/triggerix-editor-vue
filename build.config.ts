@@ -10,5 +10,5 @@ export default defineBuildConfig({
       minify: true
     }
   },
-  externals: ['vue', '@triggerix/editor', '@triggerix/core']
+  externals: ['vue', '@triggerix/editor']
 })

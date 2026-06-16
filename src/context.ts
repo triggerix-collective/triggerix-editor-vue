@@ -1,17 +1,17 @@
-import type { TriggerixEditor } from '@triggerix/editor'
+import type { Editor } from '@triggerix/editor'
 import type { InjectionKey } from 'vue'
 import { inject, provide } from 'vue'
 
-const EditorKey: InjectionKey<TriggerixEditor> = Symbol('TriggerixEditor')
+const EDITOR_KEY: InjectionKey<Editor<unknown>> = Symbol('triggerix-editor')
 
-export function provideEditor(editor: TriggerixEditor): void {
-  provide(EditorKey, editor)
+export function provideEditor(editor: Editor<unknown>): void {
+  provide(EDITOR_KEY, editor)
 }
 
-export function injectEditor(): TriggerixEditor {
-  const editor = inject(EditorKey)
+export function injectEditor<TState = unknown>(): Editor<TState> {
+  const editor = inject(EDITOR_KEY)
   if (!editor) {
-    throw new Error('[triggerix-editor-vue] No editor instance found. Did you call useEditor() in a parent component?')
+    throw new Error('No editor provided. Make sure to call useEditor() in a parent component.')
   }
-  return editor
+  return editor as Editor<TState>
 }
