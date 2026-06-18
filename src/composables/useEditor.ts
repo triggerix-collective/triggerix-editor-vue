@@ -1,6 +1,7 @@
 import type { Editor } from '@triggerix/editor'
+import type { ShallowRef } from 'vue'
 import type { UseEditorReturn } from '../types'
-import { onScopeDispose, shallowRef, triggerRef } from 'vue'
+import { onScopeDispose, shallowRef } from 'vue'
 import { provideEditor } from '../context'
 
 /**
@@ -12,7 +13,7 @@ export function useEditor<TState>(editor: Editor<TState>): UseEditorReturn<TStat
   const state = shallowRef<TState>(editor.getState())
 
   const unsubscribe = editor.onChange(() => {
-    triggerRef(state)
+    state.value = editor.getState()
   })
 
   onScopeDispose(() => {
@@ -20,7 +21,7 @@ export function useEditor<TState>(editor: Editor<TState>): UseEditorReturn<TStat
     editor.dispose()
   })
 
-  provideEditor(editor as Editor<unknown>)
+  provideEditor(editor as Editor<unknown>, state as ShallowRef<unknown>)
 
   return {
     editor,

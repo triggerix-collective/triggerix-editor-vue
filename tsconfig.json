@@ -5,6 +5,9 @@
     "moduleDetection": "force",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "paths": {
+      "@triggerix/editor": ["../triggerix/packages/editor/src"]
+    },
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,
@@ -13,10 +16,7 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "paths": {
-      "@triggerix/editor": ["../triggerix/packages/editor/src"]
-    }
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"]
 }
