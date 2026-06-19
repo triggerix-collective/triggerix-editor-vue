@@ -1,7 +1,7 @@
 {
   "name": "triggerix-editor-vue",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "packageManager": "pnpm@11.6.0",
   "description": "Vue composables and utilities for Triggerix editor",
   "homepage": "https://github.com/triggerix-lang/triggerix-editor-vue#readme",
