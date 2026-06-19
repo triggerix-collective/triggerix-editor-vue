@@ -6,9 +6,10 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@triggerix/editor": ["../triggerix/packages/editor/src"]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
+    "types": ["vitest/globals", "node"],
     "strict": true,
     "strictNullChecks": true,
     "noEmit": true,
@@ -18,5 +19,5 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
 }
