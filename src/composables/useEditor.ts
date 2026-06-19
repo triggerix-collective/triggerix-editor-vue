@@ -26,7 +26,7 @@ export function useEditor<TState>(editor: Editor<TState>): UseEditorReturn<TStat
   return {
     editor,
     state,
-    toRule: (id?: string) => editor.toRule(id),
+    toTrigger: (id?: string) => editor.toTrigger(id),
     reset: () => editor.reset()
   }
 }

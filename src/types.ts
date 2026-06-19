@@ -6,7 +6,7 @@ export type { BaseItemDef, Editor, Preset } from '@triggerix/editor'
 export interface UseEditorReturn<TState> {
   editor: Editor<TState>
   state: ShallowRef<TState>
-  toRule: (id?: string) => ReturnType<Editor<TState>['toRule']>
+  toTrigger: (id?: string) => ReturnType<Editor<TState>['toTrigger']>
   reset: () => ReturnType<Editor<TState>['reset']>
 }
 
