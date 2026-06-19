@@ -4,13 +4,13 @@
   "version": "0.0.8",
   "packageManager": "pnpm@11.6.0",
   "description": "Vue composables and utilities for Triggerix editor",
-  "homepage": "https://github.com/triggerix-lang/triggerix-editor-vue#readme",
+  "homepage": "https://github.com/triggerix-collective/triggerix-editor-vue#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:triggerix-lang/triggerix-editor-vue.git"
+    "url": "git@github.com:triggerix-collective/triggerix-editor-vue.git"
   },
   "bugs": {
-    "url": "https://github.com/triggerix-lang/triggerix-editor-vue/issues"
+    "url": "https://github.com/triggerix-collective/triggerix-editor-vue/issues"
   },
   "exports": {
     ".": {
